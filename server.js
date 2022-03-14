@@ -30,7 +30,7 @@ const getUniqueID = () => {
 };
 
 const clients = {};
-let clientMessages = [];
+let clientMessage = {};
 
 const typesDef = {
   USER_EVENT: "userevent",
@@ -63,10 +63,15 @@ wsServer.on("request", (request) => {
       const json = { type: dataFromClient.type };
       if (dataFromClient.type === typesDef.NEW_MESSAGE) {
         console.log("new message request");
-        clientMessages = dataFromClient.content;
-        json.data = { clientMessages };
+        clientMessage = dataFromClient.content;
+        json.data = { clientMessage };
       }
       sendMessage(JSON.stringify(json));
     }
+  });
+
+  connection.on("close", () => {
+    console.log(new Date() + " User " + userID + " disconnected.");
+    delete clients[userID];
   });
 });
