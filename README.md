@@ -1,9 +1,22 @@
-# Getting Started with React WebSocket Chat App Server
+# Getting Started
 
-## Available Scripts
+*The Client of this server can be found [here](https://github.com/chrystal-lyu/react-ws-chat-client).*
 
-In the project directory, you can run:
+Clone the repo:
 
-### `node server.js`
+```
+git clone https://github.com/chrystal-lyu/react-ws-chat-server.git
+```
 
-to start the server.
+Install the packages:
+
+```
+yarn install
+```
+
+
+In the project directory, you can run to start the server:
+
+```
+node server.js
+```
